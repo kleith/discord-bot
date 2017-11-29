@@ -4,17 +4,21 @@
   "description": "Discord BOT - Casitg",
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node src"
+    "clean": "rm -rf build && mkdir build",
+    "build-server": "babel src -d ./build",
+    "build": "yarn run clean && yarn run build-server",
+    "start": "node ./build/index.js",
+    "dev": "nodemon --exec babel-node src"
   },
   "repository": "https://github.com/kleith/discord-bot.git",
   "author": "Sergio Martínez<kleith.vdp89@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
     "nodemon": "^1.12.1"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "discord.js": "^11.2.1",
     "dotenv": "^4.0.0"
   }
